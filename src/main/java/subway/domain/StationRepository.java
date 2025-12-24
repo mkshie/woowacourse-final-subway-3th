@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import subway.enums.ErrorMessageEnum;
 
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
@@ -26,7 +27,7 @@ public class StationRepository {
 
     public static Station findStationByName(String name) {
         if(name == null || !stationMap.containsKey(name)) {
-            throw new IllegalArgumentException("존재하지 않는 역 이름입니다.");
+            throw new IllegalArgumentException(ErrorMessageEnum.STATION_NAME_INVALID.getMessage());
         }
         return stationMap.get(name);
     }

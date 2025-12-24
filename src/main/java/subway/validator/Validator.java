@@ -1,6 +1,7 @@
 package subway.validator;
 
 import java.util.List;
+import subway.domain.StationRepository;
 import subway.enums.ErrorMessageEnum;
 
 public class Validator {
@@ -34,6 +35,9 @@ public class Validator {
         if(startStationName.equals(endStationName)){
             throw new IllegalArgumentException(ErrorMessageEnum.SAME_STATION_NAME.getMessage());
         }
+
+        StationRepository.findStationByName(startStationName);
+        StationRepository.findStationByName(endStationName);
 
         return List.of(startStationName , endStationName);
     }

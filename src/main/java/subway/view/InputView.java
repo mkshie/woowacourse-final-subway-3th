@@ -43,6 +43,10 @@ public class InputView {
                 String choice = this.scanner.nextLine();
                 choice = Validator.validatorOption(choice);
 
+                if(choice.equals("B")) {
+                    return List.of(choice);
+                }
+
                 List<String> choiceAndStation = new ArrayList<>();
                 choiceAndStation.add(choice);
 

@@ -43,6 +43,7 @@ public class SubwayService {
         Station end = StationRepository.findStationByName(endStation);
 
         GraphPath<Station , DefaultWeightedEdge> path = dijkstra.getPath(start, end);
+
         if(path == null) {
             throw new IllegalArgumentException("해당 경로는 존재하지 않는 경로입니다.");
         }
